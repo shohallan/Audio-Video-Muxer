@@ -11,7 +11,6 @@
 		410557EE2A572D7D000819F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410557ED2A572D7D000819F1 /* ContentView.swift */; };
 		410557F02A572D7F000819F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410557EF2A572D7F000819F1 /* Assets.xcassets */; };
 		410557F32A572D7F000819F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410557F22A572D7F000819F1 /* Preview Assets.xcassets */; };
-		410FABE62A57381A002117CD /* ffmpeg in Resources */ = {isa = PBXBuildFile; fileRef = 410FABE52A57381A002117CD /* ffmpeg */; };
 		410FABED2A575A38002117CD /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FABEC2A575A38002117CD /* Packages.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,7 +21,6 @@
 		410557EF2A572D7F000819F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		410557F22A572D7F000819F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		410557F42A572D7F000819F1 /* Audio_Video_Muxer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Audio_Video_Muxer.entitlements; sourceTree = "<group>"; };
-		410FABE52A57381A002117CD /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ffmpeg; sourceTree = "<group>"; };
 		410FABEC2A575A38002117CD /* Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,7 +57,6 @@
 				410557EB2A572D7D000819F1 /* Audio_Video_MuxerApp.swift */,
 				410557ED2A572D7D000819F1 /* ContentView.swift */,
 				410FABEC2A575A38002117CD /* Packages.swift */,
-				410FABE52A57381A002117CD /* ffmpeg */,
 				410557EF2A572D7F000819F1 /* Assets.xcassets */,
 				410557F42A572D7F000819F1 /* Audio_Video_Muxer.entitlements */,
 				410557F12A572D7F000819F1 /* Preview Content */,
@@ -137,7 +134,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				410557F32A572D7F000819F1 /* Preview Assets.xcassets in Resources */,
-				410FABE62A57381A002117CD /* ffmpeg in Resources */,
 				410557F02A572D7F000819F1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
