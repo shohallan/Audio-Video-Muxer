@@ -11,7 +11,6 @@
 		410557EE2A572D7D000819F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410557ED2A572D7D000819F1 /* ContentView.swift */; };
 		410557F02A572D7F000819F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410557EF2A572D7F000819F1 /* Assets.xcassets */; };
 		410557F32A572D7F000819F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410557F22A572D7F000819F1 /* Preview Assets.xcassets */; };
-		410FABED2A575A38002117CD /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FABEC2A575A38002117CD /* Packages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +20,6 @@
 		410557EF2A572D7F000819F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		410557F22A572D7F000819F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		410557F42A572D7F000819F1 /* Audio_Video_Muxer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Audio_Video_Muxer.entitlements; sourceTree = "<group>"; };
-		410FABEC2A575A38002117CD /* Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,6 @@
 			children = (
 				410557EB2A572D7D000819F1 /* Audio_Video_MuxerApp.swift */,
 				410557ED2A572D7D000819F1 /* ContentView.swift */,
-				410FABEC2A575A38002117CD /* Packages.swift */,
 				410557EF2A572D7F000819F1 /* Assets.xcassets */,
 				410557F42A572D7F000819F1 /* Audio_Video_Muxer.entitlements */,
 				410557F12A572D7F000819F1 /* Preview Content */,
@@ -88,6 +85,8 @@
 			dependencies = (
 			);
 			name = "Audio Video Muxer";
+			packageProductDependencies = (
+			);
 			productName = "Audio Video Muxer";
 			productReference = 410557E82A572D7D000819F1 /* Audio Video Muxer.app */;
 			productType = "com.apple.product-type.application";
@@ -117,7 +116,6 @@
 			);
 			mainGroup = 410557DF2A572D7D000819F1;
 			packageReferences = (
-				410FABEB2A574454002117CD /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			productRefGroup = 410557E92A572D7D000819F1 /* Products */;
 			projectDirPath = "";
@@ -147,7 +145,6 @@
 			files = (
 				410557EE2A572D7D000819F1 /* ContentView.swift in Sources */,
 				410557EC2A572D7D000819F1 /* Audio_Video_MuxerApp.swift in Sources */,
-				410FABED2A575A38002117CD /* Packages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,17 +340,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		410FABEB2A574454002117CD /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 410557E02A572D7D000819F1 /* Project object */;
 }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+//import SwiftFFmpeg
 
 func BrowseFile() -> String{
 	// Browse file finder code modified from: https://ourcodeworld.com/articles/read/1117/how-to-implement-a-file-and-directory-picker-in-macos-using-swift-5
@@ -30,6 +32,7 @@ func BrowseFile() -> String{
 	}
 	return ""
 }
+
 
 func BrowseFolder() -> String{
 	// Browse file finder code modified from: https://ourcodeworld.com/articles/read/1117/how-to-implement-a-file-and-directory-picker-in-macos-using-swift-5
@@ -62,7 +65,48 @@ func Mux(
 	outputDest: String,
 	outputName: String
 ){
+//	var outputVideo: AVOutputFormat = init(
+//		format: nil,
+//		formatName: "mkv",
+//		filename: $outputName
+//	)
+	do {
+		var newOutName: String = outputName
+		if outputName == "" {
+			newOutName = "output"
+		}
+		var command: String = "ffmpeg -i \(videoSource) -i \(audioSource) -c copy \(outputDest)/\(newOutName).mkv"
+		//print(try safeShell("/Users/allansewell/Downloads", "ls"))
+		print(try safeShell("/Users/allansewell/Downloads", command))
+		
+		//print(try safeShell(command))
+		//print(command)
+	}
+	catch {
+		print("\(error)") //handle or silence the error here
+	}
+}
+
+// Modified and sourced from: https://stackoverflow.com/a/50035059
+@discardableResult // Add to suppress warnings when you don't want/need a result
+func safeShell(_ launchPath: String, _ command: String) throws -> String {
+	let task = Process()
+	//task.executableURL = URL(filePath: launchPath)
 	
+	let pipe = Pipe()
+	
+	task.standardOutput = pipe
+	task.standardError = pipe
+	task.arguments = ["-c", command]
+	task.executableURL = URL(filePath: "/bin/zsh") //<--updated
+	task.standardInput = nil
+
+	try task.run() //<--updated
+	
+	let data = pipe.fileHandleForReading.readDataToEndOfFile()
+	let output = String(data: data, encoding: .utf8)!
+	
+	return output
 }
 
 struct ContentView: View {
