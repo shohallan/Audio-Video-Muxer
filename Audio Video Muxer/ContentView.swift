@@ -65,22 +65,13 @@ func Mux(
 	outputDest: String,
 	outputName: String
 ){
-//	var outputVideo: AVOutputFormat = init(
-//		format: nil,
-//		formatName: "mkv",
-//		filename: $outputName
-//	)
 	do {
 		var newOutName: String = outputName
 		if outputName == "" {
 			newOutName = "output"
 		}
-		var command: String = "ffmpeg -i \(videoSource) -i \(audioSource) -c copy \(outputDest)/\(newOutName).mkv"
-		//print(try safeShell("/Users/allansewell/Downloads", "ls"))
-		print(try safeShell("/Users/allansewell/Downloads", command))
-		
-		//print(try safeShell(command))
-		//print(command)
+		let command: String = "./ffmpeg -i \(videoSource) -i \(audioSource) -c copy \(outputDest)/\(newOutName).mkv"
+		print(try safeShell((Bundle.main.resourcePath ?? "") + "/", command))
 	}
 	catch {
 		print("\(error)") //handle or silence the error here
@@ -91,7 +82,6 @@ func Mux(
 @discardableResult // Add to suppress warnings when you don't want/need a result
 func safeShell(_ launchPath: String, _ command: String) throws -> String {
 	let task = Process()
-	//task.executableURL = URL(filePath: launchPath)
 	
 	let pipe = Pipe()
 	
@@ -99,6 +89,7 @@ func safeShell(_ launchPath: String, _ command: String) throws -> String {
 	task.standardError = pipe
 	task.arguments = ["-c", command]
 	task.executableURL = URL(filePath: "/bin/zsh") //<--updated
+	task.currentDirectoryURL = URL(filePath: launchPath)
 	task.standardInput = nil
 
 	try task.run() //<--updated
@@ -118,26 +109,29 @@ struct ContentView: View {
 		
     var body: some View {
         VStack {
-            Text("Audio Video Muxer")
 			HStack {
+				Text("Video Source:")
 				TextField("Select video source", text: $videoSource)
 				Button("Browse"){
 					videoSource = BrowseFile()
 				}
 			}
 			HStack {
+				Text("Audio Source:")
 				TextField("Select audio source", text: $audioSource)
 				Button("Browse"){
 					audioSource = BrowseFile()
 				}
 			}
 			HStack {
+				Text("Output Destination:")
 				TextField("Select output destination", text: $outputDest)
 				Button("Browse"){
 					outputDest = BrowseFolder()
 				}
 			}
 			HStack {
+				Text("Output Name:")
 				TextField("Enter output name (Default: 'output')", text: $outputName)
 				Button("Mux!"){
 					Mux(videoSource: videoSource, audioSource: audioSource, outputDest: outputDest, outputName: outputName)
